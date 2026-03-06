@@ -13,7 +13,7 @@
         
     </head>
     <body>
-        <h1>Bienvenido a mi primera página web</h1>
+        <h1>niños</h1>
         
 
         <script src="script.js"></script> <!-- Enlaza un archivo JavaScript externo para agregar interactividad a la página -->
