@@ -1,12 +1,16 @@
 body {
-    background-color: whitesmoke;
-    color: black;
+    background-color: rgb(216, 210, 238);
 }
 
-.seccion {
-    color: rgb(224, 35, 66);
+h2 {
+    color: rgb(168, 17, 92);
 }
 
-.hola-span {
-    color: rgb(255, 47, 210);
+p {
+    color: rgb(8, 0, 37);
+}
+
+.bi {
+    font-size: 24px;
+    color: rgb(8, 0, 37);
 }
