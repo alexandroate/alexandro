@@ -1,0 +1,103 @@
+/* Fondo oscuro para la bóveda */
+.boveda-body {
+    background-color: #111827;
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.gallery-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.gallery-intro {
+    color: #9CA3AF;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* La Cuadrícula de Fotos */
+.gallery-grid {
+    display: grid;
+    /* Grid automático que se adapta al tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    /* Para que las fotos verticales y horizontales encajen bien */
+    aspect-ratio: 3/4; 
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen sin deformarla */
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1); /* Efecto zoom al pasar el mouse */
+}
+
+/* El texto oculto que aparece al pasar el mouse */
+.img-overlay {
+    position: absolute;
+    bottom: -50px; left: 0; width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+    font-weight: 700;
+    transition: bottom 0.3s ease;
+}
+
+.gallery-item:hover .img-overlay {
+    bottom: 0;
+}
+
+/* --- EL VISOR DE PANTALLA COMPLETA (LIGHTBOX) --- */
+.lightbox-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px; right: 40px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-lightbox:hover { color: #E07A7A; }
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}

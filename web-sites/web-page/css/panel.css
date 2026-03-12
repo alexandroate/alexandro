@@ -1,0 +1,236 @@
+/* --- RESET PARA LA ESTRUCTURA APP --- */
+body {
+    background-color: #F3F4F6; /* Fondo un poco más gris para hacer contraste con las tarjetas blancas */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Evitamos el scroll de toda la ventana, solo scrolleará el contenido principal */
+}
+
+.app-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- MENÚ LATERAL (SIDEBAR) --- */
+.sidebar {
+    width: 280px;
+    background-color: #111827; /* Gris muy oscuro, casi negro */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.sidebar-header {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #1F2937;
+}
+
+.logo-icon { font-size: 32px; color: #E07A7A; }
+.sidebar-header h2 { font-weight: 800; font-size: 24px; letter-spacing: 1px; }
+
+.user-profile {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, #E07A7A, #F5A1A1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(224, 122, 122, 0.4);
+}
+
+.user-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.user-role { font-size: 12px; color: #38A169; font-weight: 600; }
+
+.sidebar-nav {
+    flex: 1;
+    padding: 10px 15px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: #9CA3AF;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #1F2937;
+    color: #FFFFFF;
+}
+
+.nav-item.active { border-left: 4px solid #E07A7A; }
+
+.sidebar-footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #6B7280;
+    border-top: 1px solid #1F2937;
+}
+
+/* --- ÁREA PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Aquí es donde la usuaria podrá hacer scroll */
+}
+
+/* Barra Superior */
+.topbar {
+    background-color: #FFFFFF;
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.page-title { font-size: 22px; color: #111827; font-weight: 800; }
+
+.topbar-right { display: flex; align-items: center; gap: 20px; }
+
+.status-badge {
+    background-color: #DEF7EC;
+    color: #03543F;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px; height: 8px;
+    background-color: #38A169;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(56, 161, 105, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(56, 161, 105, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(56, 161, 105, 0); }
+}
+
+.system-clock { font-family: monospace; font-size: 16px; font-weight: 700; color: #6B7280; }
+
+/* Contenido del Dashboard */
+.dashboard-content { padding: 40px; max-width: 1200px; }
+
+/* Widgets de Estadísticas */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-icon { font-size: 40px; color: #9CA3AF; }
+.stat-label { font-size: 13px; color: #6B7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+.stat-value { font-size: 24px; color: #111827; font-weight: 800; }
+
+/* Módulos Desbloqueados */
+.section-title { font-size: 18px; color: #374151; margin-bottom: 20px; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; }
+
+.menu-grid { display: flex; flex-direction: column; gap: 15px; }
+
+.module-card {
+    background-color: #FFFFFF;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    border: 1px solid #E5E7EB;
+    transition: all 0.2s ease;
+}
+
+.module-card:hover {
+    transform: translateX(10px); /* En lugar de subir, se mueve a la derecha, muy premium */
+    border-color: #E07A7A;
+    box-shadow: 5px 5px 15px rgba(224, 122, 122, 0.1);
+}
+
+.module-icon {
+    width: 60px; height: 60px;
+    background-color: #FDF2F2;
+    color: #E07A7A;
+    border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.module-icon span { font-size: 30px; }
+
+.module-texts { flex: 1; }
+.module-texts h3 { color: #111827; font-size: 18px; margin-bottom: 5px; }
+.module-texts p { color: #6B7280; font-size: 14px; }
+
+.arrow-icon { color: #D1D5DB; font-size: 20px; transition: 0.2s; }
+.module-card:hover .arrow-icon { color: #E07A7A; transform: translateX(5px); }
+
+/* --- ESTILO PARA EL BOTÓN DE CERRAR SESIÓN CORREGIDO --- */
+
+/* Asegura que los nav-items heredan el flex si el padre lo tiene */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 70px); /* Ajusta según el alto del header */
+}
+
+/* El nuevo estilo para el ítem de logout */
+.logout-item {
+    margin-top: auto; /* Truco de Flexbox: empuja este ítem al fondo */
+    color: #C96666 !important; /* Un rojo suave para indicar acción */
+    border-top: 1px solid #F3F4F6; /* Una línea divisoria sutil */
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.logout-item:hover {
+    background-color: #FDF2F2 !important; /* Fondo rosa pálido al pasar el mouse */
+    color: #E07A7A !important;
+}
+
+/* Eliminamos cualquier estilo previo que pudiera estar fixed o absolute */
+/* Si tenías una clase vieja para el botón fixed, bórrala o asegúrate de esto: */
+.clase-vieja-del-boton-fixed {
+    position: static !important;
+    display: none; /* O bórrala directamente */
+}

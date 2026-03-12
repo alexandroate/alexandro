@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Central | Sistema</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/arcade.css">
+</head>
+<body class="arcade-body">
+
+    <nav class="arcade-nav">
+        <a href="panel.html" class="btn-back">
+            <span class="material-symbols-outlined">arrow_back</span> Volver al Panel
+        </a>
+        <h2 class="arcade-title">Memoria Desencriptada</h2>
+        <div class="score-display">
+            Intentos: <span id="movimientos">0</span>
+        </div>
+    </nav>
+
+    <main class="board-container">
+        <div id="game-board" class="memory-grid"></div>
+    </main>
+
+    <div id="win-modal" class="hidden win-overlay">
+        <div class="win-box">
+            <h2>¡Nivel Completado!</h2>
+            <p>Tienes una memoria perfecta para nuestros momentos.</p>
+            <button id="btn-restart" class="btn-solid">Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <script src="js/arcade.js"></script>
+</body>
+</html>
