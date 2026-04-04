@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Sistema | Nueva Propietaria</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h1 class="main-title" style="font-size: 30px;">CREAR PERFIL</h1>
+        <p class="subtitle">Inicializando base de datos personal. Ingresar credenciales.</p>
+
+        <form id="registro-form">
+            <div class="input-group">
+                <label for="reg-user">Define tu Usuario</label>
+                <input type="text" id="reg-user" placeholder="Ej: Nombre Completo" required autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label for="reg-pass">Define tu Contraseña</label>
+                <input type="password" id="reg-pass" placeholder="Crea una clave secreta" required>
+            </div>
+
+            <button type="submit" class="btn-login-solid">REGISTRAR EN EL SISTEMA</button>
+        </form>
+        
+        <div style="margin-top: 25px; border-top: 1px solid #E5E7EB; padding-top: 15px; text-align: center;">
+            <a href="index.html" style="color: #6B7280; font-size: 14px; text-decoration: none; font-weight: 600;">Ya tengo una cuenta</a>
+        </div>
+    </div>
+
+    <script src="js/registro.js"></script>
+</body>
+</html>

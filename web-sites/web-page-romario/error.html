@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desencriptando... | Sistema</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/error.css">
+</head>
+<body>
+    
+    <div id="loading-screen" class="ui-card">
+        <h2 class="main-title-principal">AUTENTICACIÓN</h2>
+        <p class="subtitle">Desencriptando archivos de nuestra historia...</p>
+        
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <p id="progress-text" class="progress-status">0%</p>
+    </div>
+
+    <div id="error-screen" class="ui-card hidden">
+        <h1 class="error-code">404</h1>
+        <h2 class="main-title">Galería no encontrada</h2>
+        <p class="subtitle">Ups... El sistema no encuentra fotos juntos en la base de datos. O se borraron, o nos olvidamos de tomarlas.</p>
+        
+        <button id="btn-emergency" class="btn-solid">ACTIVAR PROTOCOLO DE EMERGENCIA</button>
+    </div>
+
+    <script src="js/carga.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* --- LA TARJETA BLANCA (Reutilizamos la estética Premium) --- */
+.ui-card {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 450px;
+    padding: 48px 40px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+    border: 1px solid #F3F4F6;
+    text-align: center;
+}
+
+/* Tipografía de la tarjeta */
+.main-title { 
+    color: #111827; 
+    font-size: 24px; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+}
+
+.main-title-principal { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #E07A7A; 
+    margin-bottom: 8px; 
+    line-height: 1; 
+    letter-spacing: -2px; 
+}
+
+.subtitle { color: #6B7280; 
+    font-size: 14px; 
+    margin-bottom: 32px; 
+    line-height: 1.5; 
+}
+
+/* --- BARRA DE PROGRESO --- */
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background-color: #F3F4F6;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 1px solid #E5E7EB;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #38A169; /* Inicia en verde */
+    border-radius: 10px;
+    transition: width 0.3s ease, background-color 0.5s ease;
+}
+
+.progress-status { 
+    margin-top: 10px; 
+    font-weight: bold; 
+    color: #6B7280; 
+    font-size: 14px; 
+}
+
+/* --- ESTILOS DEL ERROR 404 --- */
+.error-code { 
+    font-size: 80px; 
+    font-weight: 800; 
+    color: #E07A7A; 
+    margin-bottom: 0; 
+    line-height: 1; 
+    letter-spacing: -2px; 
+}
+
+/* Botón de Emergencia */
+.btn-solid {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background-color: #E07A7A;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-solid:hover { background-color: #C96666; }

@@ -1,0 +1,94 @@
+/* --- Reutilizamos estilos base de la bóveda --- */
+.boveda-body {
+    background-color: #111827; /* Mismo fondo oscuro total */
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.gallery-wrapper {
+    max-width: 1200px; /* Un poco más ancho para videos */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.gallery-intro {
+    color: #9CA3AF; /* Gris intro */
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 50px;
+    letter-spacing: 0.5px;
+}
+
+/* --- La Cuadrícula de Videos (Grid Cyberpunk) --- */
+.video-grid {
+    display: grid;
+    /* Grid automático y responsivo */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* --- La Tarjeta de Video --- */
+.video-item {
+    position: relative;
+    background-color: #1f2937; /* Gris oscuro para la tarjeta */
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(224, 122, 122, 0.1); /* Borde rosa muy sutil */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efecto hover estilo Hacker */
+.video-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(224, 122, 122, 0.2); /* Brillo rosa al hover */
+    border: 1px solid rgba(224, 122, 122, 0.4);
+}
+
+/* --- El Contenedor Proporcional (16:9) --- */
+.video-player-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    background: #000; /* Fondo negro mientras carga */
+}
+
+.video-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px 16px 0 0; /* Bordes curvos solo arriba */
+}
+
+/* --- El Texto que aparece al Hover --- */
+.video-overlay {
+    padding: 18px;
+    background: #1f2937; /* Fondo oscuro sólido para la info */
+    border-top: 1px dashed rgba(156, 163, 175, 0.3);
+    color: white;
+    text-align: center;
+}
+
+.video-overlay p {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fcfcfc;
+}
+
+.video-note {
+    font-size: 13px;
+    color: #9CA3AF;
+    font-style: italic;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+}

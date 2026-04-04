@@ -1,0 +1,48 @@
+.ui-card {
+    background-color: #FFFFFF;
+    width: 90%;
+    max-width: 500px;
+    padding: 50px 40px; 
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    height: 50px; /* Mantiene el espacio aunque el botón "Sí" se vaya volando */
+}
+
+/* Estilo base para ambos botones */
+.btn-trampa, .btn-fijo {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* El botón que escapa (Verde/Positivo) */
+.btn-trampa {
+    background-color: #38A169;
+    color: white;
+    /* La transición hace que el salto del botón se vea animado y no robótico */
+    transition: top 0.2s ease, left 0.2s ease; 
+}
+
+/* El botón aburrido (Gris) */
+.btn-fijo {
+    background-color: #E5E7EB;
+    color: #374151;
+}
+
+.btn-fijo:hover {
+    background-color: #D1D5DB;
+}

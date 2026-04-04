@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+body {
+    /* Fondo: Un rosa/crema un poquitito más oscuro para hacer contraste */
+    background-color: #FDF2F2;
+    color: #555;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* --- ESTILOS DEL LOGIN (EL CUADRADO) --- */
+.login-container {
+    /* Fondo blanco puro para que resalte completamente del fondo de la página */
+    background-color: #FFFFFF;
+    
+    /* EL TAMAÑO: Reducimos el ancho máximo y el espacio interior (padding) */
+    width: 80%;
+    max-width: 540px; /* Antes era 420px */
+    padding: 50px 40px; /* Antes era 50px */
+    
+    /* EL BORDE Y LA SOMBRA: Para que se note perfectamente el cuadrado */
+    border-radius: 16px; /* Bordes más redonditos, muy de moda */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada que lo hace "flotar" */
+    
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+.main-title {
+    color: #992727;
+    margin-bottom: 10px;
+    font-size: 35px; /* Título un poco más pequeño para encajar */
+    font-weight: 1000;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #F8FAFC; /* Un gris muuuy clarito para los inputs */
+    border: 1px solid #E2E8F0;
+    color: #555;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #F28C8C;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(242, 140, 140, 0.15); /* Un resplandor sutil al hacer clic */
+}
+
+/* Botón principal */
+.btn-login-solid {
+    width: 100%;
+    padding: 14px;
+    background-color: #F28C8C;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(242, 140, 140, 0.3); /* Sombra color coral para el botón */
+}
+
+.btn-login-solid:hover {
+    background-color: #E07A7A;
+    transform: translateY(-2px); /* El botón "sube" un poquito al pasar el mouse */
+}
+
+/* --- ESTILOS DEL CAPTCHA (MODAL) --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(253, 242, 242, 0.85); /* Fondo difuminado a juego */
+    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    padding: 45px 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.warning-pastel {
+    color: #F28C8C;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.modal-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.pregunta-trampa {
+    color: #333 !important;
+    font-size: 15px !important;
+    font-weight: 700;
+    margin-bottom: 25px; /* ANTES ERA 15px: Aquí le damos más aire hacia abajo */
+}
+
+.error-msg {
+    color: #FFB74D !important;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 13px;
+    height: 18px;
+}
+
+/* El botón del Captcha */
+.btn-verify-pastel {
+}
+
+#btn-verify {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    border: 2px solid #F28C8C;
+    color: #F28C8C;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+#btn-verify:hover {
+    background-color: #F28C8C;
+    color: white;
+}
+
+/* --- FASE 2: BARRA DE CARGA Y ERROR --- */
+#phase2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background-color: #F3F4F6;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 1px solid #E5E7EB;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    /* Empieza con el Verde de "Autenticación Exitosa" */
+    background-color: #38A169; 
+    border-radius: 10px;
+    /* La magia: anima tanto el ancho como el cambio de color para que sea fluido */
+    transition: width 0.3s ease, background-color 0.5s ease; 
+}
+
+.error-code {
+    font-size: 80px;
+    font-weight: 800;
+    color: #E07A7A;
+    margin-bottom: 0;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* --- FASE 3: MODO PANTALLA COMPLETA --- */
+/* --- FASE 3: MODO PANTALLA COMPLETA --- */
+.fullscreen-mode {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh; /* Ocupa el 100% de la pantalla */
+    background-color: #F9FAFB; /* Mismo fondo limpio */
+    z-index: 100; /* Se pone por encima de todo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Evita barras de desplazamiento */
+}
+
+/* Interfaz superior del juego */
+#game-ui {
+    margin-top: 30px;
+    text-align: center;
+    z-index: 110;
+    pointer-events: none; /* Para que si cae un corazón atrás de las letras, ella pueda darle clic */
+}
+
+#game-ui h2 { color: #111827; font-size: 28px; font-weight: 800; }
+#game-ui p { color: #6B7280; font-size: 16px; margin-top: 5px; }
+
+.score-board {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #374151;
+    background: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: inline-block;
+}
+
+#score { color: #E07A7A; font-size: 32px; font-weight: 900; }
+
+/* --- LOS CORAZONES GIGANTES Y FLOTANTES --- */
+.heart {
+    position: absolute;
+    /* Nacen en posiciones aleatorias dentro de la ventana, ya no solo arriba */
+    top: -100px;
+    left: -100px;
+    font-size: 55px; /* ¡Corazones gigantes! */
+    cursor: pointer;
+    z-index: 105;
+    
+    /* ESTO EVITA QUE SE SELECCIONE COMO TEXTO (La rayita de escribir) */
+    -webkit-user-select: none; 
+    user-select: none; 
+    
+    /* Asignamos la nueva animación de flotar y derivar */
+    animation: floatAndDrift linear forwards;
+}
+
+/* Efecto visual de Explosión */
+.heart.explode {
+    animation: pop 0.3s ease-out forwards; /* Cambia a la animación de explotar */
+    pointer-events: none; /* Evita que le dé doble clic al mismo corazón */
+}
+
+/* --- NUEVAS ANIMACIONES DE MOVIMIENTO COMPLEJO --- */
+
+/* Flotar, derivar y desaparecer sutilmente */
+@keyframes floatAndDrift {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg) scale(0.8);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    /* Fase media: Derivación aleatoria */
+    25% { transform: translate(-20px, 30px) rotate(5deg) scale(1.05); }
+    50% { transform: translate(30px, -20px) rotate(-5deg) scale(0.95); }
+    75% { transform: translate(-10px, 20px) rotate(3deg) scale(1); }
+    /* Final: Desaparecer */
+    100% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg) scale(0.8);
+        top: 110vh; /* Se mueven hacia abajo al final para asegurar la limpieza */
+    }
+}
+
+/* Efecto visual de Explosión */
+@keyframes pop {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.8); opacity: 0.8; } /* Crece casi al doble */
+    100% { transform: scale(2.5); opacity: 0; } /* Desaparece explotando */
+}
+
+/* --- LA CARTA FINAL --- */
+#final-message {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* Lo centra perfectamente en la pantalla */
+    text-align: center;
+    width: 90%; max-width: 600px;
+    z-index: 120;
+}
+
+.love-letter {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(224, 122, 122, 0.15); /* Sombra color coral */
+    text-align: left;
+    font-size: 18px;
+    color: #374151;
+    line-height: 1.8;
+    border-top: 6px solid #E07A7A; /* Un detalle elegante arriba */
+}
+
+.firma {
+    text-align: right; font-weight: 800; font-size: 20px; color: #E07A7A; margin-top: 20px;
+}
